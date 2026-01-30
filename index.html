@@ -17,6 +17,17 @@
       --shadow: 0 10px 25px rgba(20,40,38,.08);
       --radius: 18px;
     }
+    nav{ width: 100%; }
+    nav a{
+  display:block;
+  width:100%;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:12px;
+}
+    main{
+  margin-left: 240px;
+}
     *{box-sizing:border-box}
     body{
       margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -28,15 +39,25 @@
     a{color:inherit}
     .container{max-width:1080px; margin:0 auto; padding:0 18px}
     header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(251,251,250,.75);
-      border-bottom:1px solid rgba(232,236,235,.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  z-index: 50;
+
+  backdrop-filter: blur(10px);
+  background: rgba(251,251,250,.92);
+  border-right: 1px solid rgba(232,236,235,.9);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0;
-      gap:14px;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 18px 0;
+  height: 100%;
     }
     .brand{
       display:flex; align-items:center; gap:10px; text-decoration:none;
@@ -51,9 +72,14 @@
     }
     .logoMark svg{opacity:.9}
     nav ul{
-      list-style:none; margin:0; padding:0;
-      display:flex; gap:16px; align-items:center;
-      font-size:14px; color:var(--muted);
+       list-style:none; margin:0; padding:0;
+  display:flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  font-size:14px;
+  color:var(--muted);
     }
     nav a{ text-decoration:none; padding:8px 10px; border-radius:12px}
     nav a:hover{ background: rgba(47,143,134,.08); color:var(--ink) }
@@ -168,7 +194,34 @@
       .heroGrid{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
-      nav ul{display:none}
+      header{
+  position: sticky;
+  width: 100%;
+  height: auto;
+  border-right: none;
+  border-bottom:1px solid rgba(232,236,235,.8);
+}
+main{
+  margin-left: 0;
+}
+.nav{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  padding:12px 0;
+}
+nav ul{
+  display:flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items:center;
+  width: auto;
+}
+.nav .btn.primary{
+  width: auto;
+  margin-top: 0;
+}
       .h1{font-size:36px}
       .footerGrid{grid-template-columns:1fr}
     }
