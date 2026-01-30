@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Life Reset — Coaching relationnel & couple</title>
+  <meta name="description" content="Life Reset — Coaching relationnel & couple. Un accompagnement doux pour mieux communiquer, apaiser les tensions et avancer ensemble." />
+  <style>
+    :root{
+      --bg:#fbfbfa;
+      --card:#ffffff;
+      --ink:#19312f;
+      --muted:#4d6662;
+      --brand:#2f8f86;
+      --sand:#caa678;
+      --line:#e8eceb;
+      --shadow: 0 10px 25px rgba(20,40,38,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink); background: radial-gradient(1200px 600px at 10% 0%, rgba(47,143,134,.10), transparent 60%),
+                        radial-gradient(900px 500px at 90% 10%, rgba(202,166,120,.14), transparent 60%),
+                        var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .container{max-width:1080px; margin:0 auto; padding:0 18px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,251,250,.75);
+      border-bottom:1px solid rgba(232,236,235,.8);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .logoMark{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(145deg, rgba(47,143,134,.28), rgba(202,166,120,.22));
+      border:1px solid rgba(47,143,134,.22);
+      display:grid; place-items:center;
+      box-shadow: 0 8px 16px rgba(20,40,38,.06);
+    }
+    .logoMark svg{opacity:.9}
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; gap:16px; align-items:center;
+      font-size:14px; color:var(--muted);
+    }
+    nav a{ text-decoration:none; padding:8px 10px; border-radius:12px}
+    nav a:hover{ background: rgba(47,143,134,.08); color:var(--ink) }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(47,143,134,.25);
+      background: linear-gradient(180deg, rgba(47,143,134,.12), rgba(47,143,134,.06));
+      text-decoration:none; font-weight:600;
+      box-shadow: 0 10px 18px rgba(20,40,38,.06);
+    }
+    .btn:hover{ transform: translateY(-1px); transition: .15s ease; }
+    .btn.primary{
+      border:1px solid rgba(47,143,134,.45);
+      background: linear-gradient(180deg, rgba(47,143,134,.24), rgba(47,143,134,.10));
+    }
+    .hero{
+      padding:54px 0 26px;
+    }
+    .heroGrid{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:22px;
+      align-items:stretch;
+    }
+    .h1{font-size:42px; line-height:1.1; margin:0 0 10px}
+    .sub{color:var(--muted); font-size:16px; margin:0 0 18px}
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 24px}
+    .pill{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(232,236,235,1);
+      background: rgba(255,255,255,.65);
+    }
+    .card{
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(232,236,235,1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroCard{padding:18px}
+    .heroCard h3{margin:0 0 8px}
+    .heroCard p{margin:0; color:var(--muted); font-size:14px}
+    .mini{
+      margin-top:14px;
+      display:grid; gap:10px;
+    }
+    .mini .item{
+      padding:12px 14px; border-radius:16px;
+      background: rgba(47,143,134,.06);
+      border:1px solid rgba(47,143,134,.12);
+      font-size:14px;
+    }
+    section{padding:36px 0}
+    .sectionTitle{font-size:26px; margin:0 0 10px}
+    .sectionLead{color:var(--muted); margin:0 0 18px}
+    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:14px}
+    .grid2{display:grid; grid-template-columns: repeat(2,1fr); gap:14px}
+    .pad{padding:18px}
+    .kicker{
+      display:inline-block; font-size:12px; letter-spacing:.14em;
+      text-transform:uppercase; color: rgba(47,143,134,.9);
+      margin-bottom:10px;
+    }
+    .price{
+      font-size:28px; font-weight:800; margin:8px 0;
+    }
+    .muted{color:var(--muted)}
+    .list{margin:12px 0 0; padding:0; list-style:none; color:var(--muted)}
+    .list li{padding-left:18px; position:relative; margin:8px 0}
+    .list li:before{
+      content:"✓";
+      position:absolute; left:0; top:0;
+      color: var(--brand); font-weight:800;
+    }
+    .ctaBar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:18px;
+      background: linear-gradient(180deg, rgba(202,166,120,.18), rgba(47,143,134,.08));
+      border:1px solid rgba(232,236,235,1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .ctaBar strong{display:block; font-size:18px}
+    .ctaBar span{color:var(--muted); font-size:14px}
+    .faq details{
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(232,236,235,1);
+      border-radius: 16px;
+      padding:14px 16px;
+      margin:10px 0;
+      box-shadow: 0 10px 18px rgba(20,40,38,.04);
+    }
+    .faq summary{cursor:pointer; font-weight:700}
+    footer{
+      padding:26px 0 40px; color:var(--muted);
+      border-top:1px solid rgba(232,236,235,1);
+      background: rgba(255,255,255,.5);
+    }
+    .footerGrid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:14px;
+      align-items:start;
+    }
+    .small{font-size:12px; color:var(--muted)}
+    .note{
+      font-size:12px; color:var(--muted);
+      padding:12px 14px; border-radius:14px;
+      border:1px solid rgba(232,236,235,1);
+      background: rgba(255,255,255,.75);
+    }
+
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      nav ul{display:none}
+      .h1{font-size:36px}
+      .footerGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Accueil Life Reset">
+          <div class="logoMark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.6-9.4-9C.8 7.9 3.3 5 6.5 5c1.9 0 3.3 1 4 2.1C11.2 6 12.6 5 14.5 5 17.7 5 20.2 7.9 21.4 12c-2.4 4.4-9.4 9-9.4 9Z" stroke="rgba(25,49,47,.9)" stroke-width="1.6" />
+            </svg>
+          </div>
+          <span>Life Reset</span>
+        </a>
+
+        <nav aria-label="Navigation">
+          <ul>
+            <li><a href="#offres">Offres</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#process">Comment ça se passe</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn primary" href="#contact">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroGrid">
+          <div>
+            <span class="kicker">Coaching relationnel & couple</span>
+            <h1 class="h1">Un nouveau souffle pour votre relation.</h1>
+            <p class="sub">
+              Life Reset vous accompagne avec douceur pour mieux communiquer,
+              apaiser les tensions et avancer ensemble — pas à pas.
+            </p>
+
+            <div class="pillRow" aria-label="Points forts">
+              <span class="pill">Séances en visio</span>
+              <span class="pill">Cadre bienveillant</span>
+              <span class="pill">Outils concrets</span>
+              <span class="pill">À votre rythme</span>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap">
+              <a class="btn primary" href="#offres">Découvrir les offres</a>
+              <a class="btn" href="#process">Voir le déroulé</a>
+            </div>
+
+            <p class="note" style="margin-top:18px">
+              <strong>Important :</strong> Life Reset propose un accompagnement de coaching relationnel,
+              <strong>hors cadre thérapeutique</strong> et ne se substitue pas à un suivi médical ou psychologique.
+            </p>
+          </div>
+
+          <aside class="card heroCard" aria-label="Encadré">
+            <h3>Ce que vous trouverez ici</h3>
+            <p>Un espace pour vous poser, vous écouter, vous comprendre et repartir avec des actions simples.</p>
+            <div class="mini">
+              <div class="item">✨ Clarifier la situation et les besoins</div>
+              <div class="item">💬 Retrouver une communication plus apaisée</div>
+              <div class="item">🌿 Recréer du lien et de la confiance</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFRES -->
+    <section id="offres">
+      <div class="container">
+        <h2 class="sectionTitle">Offres</h2>
+        <p class="sectionLead">Des formats simples, accessibles, et pensés pour avancer concrètement.</p>
+
+        <div class="grid3">
+          <div class="card pad">
+            <span class="kicker">Découverte</span>
+            <h3 style="margin:0">Séance Découverte Reset</h3>
+            <p class="muted" style="margin:8px 0 0">Pour faire le point et voir si l’accompagnement vous convient.</p>
+            <div class="price">Offerte</div>
+            <ul class="list">
+              <li>30 minutes (visio)</li>
+              <li>Clarification de votre besoin</li>
+              <li>Orientation et proposition de suite</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact">Réserver</a>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <span class="kicker">Séance</span>
+            <h3 style="margin:0">Séance Reset</h3>
+            <p class="muted" style="margin:8px 0 0">Un temps pour apaiser, comprendre et repartir avec 1–2 actions.</p>
+            <div class="price">60 €</div>
+            <ul class="list">
+              <li>1 heure (visio)</li>
+              <li>Outils de communication</li>
+              <li>Plan d’action personnalisé</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact">Prendre rendez-vous</a>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <span class="kicker">Parcours</span>
+            <h3 style="margin:0">Parcours Reset — Couple</h3>
+            <p class="muted" style="margin:8px 0 0">Pour vous accompagner sur la durée et consolider les changements.</p>
+            <div class="price">250 €</div>
+            <div class="muted" style="margin-top:-6px; font-size:13px">(5 séances — au lieu de 300 €)</div>
+            <ul class="list">
+              <li>5 × 1 heure (visio)</li>
+              <li>Objectifs + suivi entre séances</li>
+              <li>Progression pas à pas</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn primary" href="#contact">Démarrer le parcours</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" class="ctaBar">
+          <div>
+            <strong>Vous ne savez pas par où commencer ?</strong>
+            <span>La séance découverte vous aide à y voir clair, en douceur.</span>
+          </div>
+          <a class="btn primary" href="#contact">Réserver une découverte</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- A PROPOS -->
+    <section id="apropos">
+      <div class="container">
+        <h2 class="sectionTitle">À propos</h2>
+        <p class="sectionLead">
+          Life Reset est né d’une envie simple : offrir un espace de dialogue, de clarté et de soutien quand la relation traverse une période difficile.
+        </p>
+
+        <div class="grid2">
+          <div class="card pad">
+            <h3 style="margin-top:0">Mon approche</h3>
+            <p class="muted">
+              Un accompagnement basé sur l’écoute, la bienveillance et des outils concrets pour faciliter la communication.
+              L’objectif : vous aider à mieux vous comprendre et à avancer avec plus de sérénité.
+            </p>
+            <ul class="list">
+              <li>Cadre sécurisant et respectueux</li>
+              <li>Questions guidées + exercices simples</li>
+              <li>Objectifs réalistes, à votre rythme</li>
+            </ul>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin-top:0">Cadre & éthique</h3>
+            <p class="muted">
+              Life Reset propose un <strong>coaching relationnel</strong>, hors cadre thérapeutique.
+              Si la situation nécessite un accompagnement médical/psychologique, je vous inviterai à consulter un professionnel adapté.
+            </p>
+            <div class="note" style="margin-top:12px">
+              <strong>À indiquer aussi sur tes réseaux :</strong><br/>
+              “Coaching relationnel & couple — hors cadre thérapeutique.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <h2 class="sectionTitle">Comment ça se passe</h2>
+        <p class="sectionLead">Un déroulé simple, clair, rassurant.</p>
+
+        <div class="grid3">
+          <div class="card pad">
+            <span class="kicker">Étape 1</span>
+            <h3 style="margin:0">On fait le point</h3>
+            <p class="muted" style="margin-top:8px">
+              Vous expliquez votre situation. On clarifie votre objectif et ce qui bloque aujourd’hui.
+            </p>
+          </div>
+          <div class="card pad">
+            <span class="kicker">Étape 2</span>
+            <h3 style="margin:0">On débloque</h3>
+            <p class="muted" style="margin-top:8px">
+              Outils de communication, questions guidées, pistes pour apaiser les tensions.
+            </p>
+          </div>
+          <div class="card pad">
+            <span class="kicker">Étape 3</span>
+            <h3 style="margin:0">On avance</h3>
+            <p class="muted" style="margin-top:8px">
+              Vous repartez avec 1–2 actions concrètes et un cap clair pour la suite.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq" style="margin-top:18px">
+          <h3 style="margin:0 0 10px">Questions fréquentes</h3>
+
+          <details>
+            <summary>Est-ce que c’est de la thérapie ?</summary>
+            <p class="muted">Non. Life Reset propose du coaching relationnel (hors cadre thérapeutique). L’accompagnement ne remplace pas un professionnel de santé.</p>
+          </details>
+
+          <details>
+            <summary>On peut venir seul(e) ?</summary>
+            <p class="muted">Oui. Une séance peut se faire en individuel ou en couple, selon votre besoin.</p>
+          </details>
+
+          <details>
+            <summary>Comment réserver ?</summary>
+            <p class="muted">Via le formulaire de contact ci-dessous. Tu peux aussi ajouter un lien de réservation (Calendly, par exemple).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="sectionTitle">Contact & prise de rendez-vous</h2>
+        <p class="sectionLead">Écris un message, je te réponds rapidement avec une proposition de créneau.</p>
+
+        <div class="grid2">
+          <div class="card pad">
+            <h3 style="margin-top:0">Me contacter</h3>
+
+            <!-- OPTION SIMPLE : liens cliquables -->
+            <p class="muted" style="margin-bottom:10px">
+              Remplace les informations ci-dessous par tes coordonnées.
+            </p>
+            <ul class="list">
+              <li>Email : <a href="mailto:TONEMAIL@exemple.com">TONEMAIL@exemple.com</a></li>
+              <li>Téléphone : <a href="tel:+33TONNUMERO">+33 TON NUMÉRO</a></li>
+              <li>Zone : Visio (France) — éventuellement Aix-en-Provence</li>
+            </ul>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn primary" href="mailto:TONEMAIL@exemple.com?subject=Demande%20de%20rendez-vous%20—%20Life%20Reset">Envoyer un email</a>
+              <a class="btn" href="#offres">Voir les offres</a>
+            </div>
+
+            <p class="small" style="margin-top:14px">
+              Astuce : ajoute un lien Calendly si tu veux une réservation automatique.
+            </p>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin-top:0">Message type (à copier-coller)</h3>
+            <p class="muted">Tu peux envoyer ce message par email ou par DM :</p>
+            <div class="note" style="white-space:pre-wrap">
+Bonjour Life Reset,
+Nous aimerions réserver une séance (découverte / séance Reset / parcours).
+Notre situation en 2–3 phrases :
+Nos disponibilités :
+Merci 🌿
+            </div>
+
+            <p class="small" style="margin-top:12px">
+              Mention : “Coaching relationnel & couple — hors cadre thérapeutique.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTIONS LEGALES -->
+    <section id="mentions">
+      <div class="container">
+        <h2 class="sectionTitle">Mentions légales</h2>
+        <p class="sectionLead">À compléter quand tu reçois ton SIRET.</p>
+
+        <div class="card pad">
+          <p class="muted" style="margin-top:0">
+            <strong>Nom commercial :</strong> Life Reset<br/>
+            <strong>Statut :</strong> Entreprise individuelle — Micro-entrepreneur<br/>
+            <strong>Responsable de publication :</strong> Anne-Valérie Mansard<br/>
+            <strong>Adresse :</strong> À compléter<br/>
+            <strong>SIRET :</strong> À compléter<br/>
+            <strong>Email :</strong> À compléter<br/>
+            <strong>Hébergeur :</strong> (Netlify / Vercel / GitHub Pages — à compléter)
+          </p>
+
+          <p class="small">
+            Life Reset propose du coaching relationnel (hors cadre thérapeutique) et ne se substitue pas à un suivi médical ou psychologique.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <strong>Life Reset</strong><br/>
+          <span class="small">Coaching relationnel & couple — avec douceur, clarté et respect.</span>
+        </div>
+        <div class="small">
+          <a href="#mentions">Mentions légales</a> ·
+          <a href="#contact">Contact</a> ·
+          <a href="#offres">Offres</a>
+        </div>
+      </div>
+      <p class="small" style="margin-top:14px">© <span id="year"></span> Life Reset. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
